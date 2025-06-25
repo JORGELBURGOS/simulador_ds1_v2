@@ -1,53 +1,32 @@
 <!DOCTYPE html>
 <html lang='es'>
 <head>
-  <meta charset='UTF-8'>
-  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-  <title>Simulador Estratégico</title>
-  <link rel='stylesheet' href='style.css'>
-  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css'>
-  <script src='https://cdn.jsdelivr.net/npm/chart.js'></script>
-  <script src='https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js'></script>
-
-  
-</head>
-
-
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Simulador Estratégico NewPay</title>
+    <link rel='stylesheet' href='style.css'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css'>
+    <script src='https://cdn.jsdelivr.net/npm/chart.js'></script>
+    <script src='https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js'></script>
 </head>
 <body>
     <div class='container'>
         <header>
-            <h1><i class='fas fa-chart-line'></i> Simulador Estratégico</h1>
+            <h1><i class='fas fa-chart-line'></i> Simulador Estratégico NewPay</h1>
         </header>
 
-        <div class='top-actions' style='text-align: right; padding: 10px 20px;'>
-            <button id='save-state-btn' class='btn small'>
-                💾 Guardar Estado
-            </button>
-        </div>
-
-        <div class="main-content">
-            <nav id='main-nav' class='sidebar'>
-                <!-- Logo Empresa arriba -->
-                <div style="text-align: center; padding: 10px 0;">
-                    <img src="logoempresa.png" alt="Logo Empresa" style="max-width: 80%; height: auto;">
-                </div>
-
+        <div class='main-content'>
+            <nav id='main-nav'>
                 <ul>
-                    <li><a href="#clientes" class="active"><i class="fas fa-users"></i> Clientes</a></li>
-                    <li><a href="#productos"><i class="fas fa-boxes"></i> Productos</a></li>
-                    <li><a href="#dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
-                    <li><a href="#entorno"><i class="fas fa-globe-americas"></i> Análisis del Entorno</a></li>
-                    <li><a href="#competitivo"><i class="fas fa-chess"></i> Análisis Competitivo</a></li>
-                    <li><a href="#bcg"><i class="fas fa-chart-bar"></i> Análisis de Crecimiento</a></li>
-                    <li><a href="#estrategias"><i class="fas fa-chess-knight"></i> Estrategias</a></li>
-                    <li><a href="#pl"><i class="fas fa-file-invoice-dollar"></i> P&L</a></li>
+                    <li><a href='#clientes'><i class='fas fa-users'></i> Clientes</a></li>
+                    <li><a href='#productos'><i class='fas fa-boxes'></i> Productos</a></li>
+                    <li><a href='#dashboard'><i class='fas fa-tachometer-alt'></i> Dashboard</a></li>
+                    <li><a href='#entorno'><i class='fas fa-globe-americas'></i> Análisis del Entorno</a></li>
+                    <li><a href='#competitivo'><i class='fas fa-chess'></i> Análisis Competitivo</a></li>
+                    <li><a href='#bcg'><i class='fas fa-matrix'></i> Análisis de Crecimiento</a></li>
+                    <li><a href='#estrategias'><i class='fas fa-chess-knight'></i> Estrategias</a></li>
+                    <li><a href='#pl'><i class='fas fa-file-invoice-dollar'></i> P&L</a></li>
                 </ul>
-
-                <!-- Logo Dueño abajo -->
-                <div style="text-align: center; padding: 20px 0; margin-top: auto;">
-                    <img src="logodueño.png" alt="Logo Dueño" style="max-width: 70%; height: auto;">
-                </div>
             </nav>
 
             <main>
@@ -56,8 +35,6 @@
                     <h2><i class='fas fa-users'></i> Clientes</h2>
                     <div class='client-actions'>
                         <button class='btn' id='add-client-btn'><i class='fas fa-plus'></i> Agregar Cliente</button>
-                        <button class='btn' id='save-state-btn'><i class='fas fa-save'></i> Guardar Estado</button>
-                        <button class='btn' id='load-state-btn'><i class='fas fa-folder-open'></i> Cargar Estado</button>
                     </div>
                     <table>
                         <thead>
@@ -170,11 +147,11 @@
                         </div>
                     </div>
 
-                    <div class='dashboard-charts' style='display: flex; flex-wrap: wrap; gap: 20px;'>
-                        <div class='chart-container' style='flex: 1 1 300px;'>
+                    <div class='dashboard-charts'>
+                        <div class='chart-container'>
                             <canvas id='revenue-chart'></canvas>
                         </div>
-                        <div class='chart-container' style='flex: 1 1 300px;'>
+                        <div class='chart-container'>
                             <canvas id='transactions-chart'></canvas>
                         </div>
                     </div>
@@ -315,8 +292,24 @@
                 <section id='bcg'>
                     <h2><i class='fas fa-matrix'></i> Análisis de Crecimiento</h2>
                     <div class='bcg-container'>
-                        <!-- Matriz BCG generada dinámicamente -->
-                        <div id='bcg-matrix' class='bcg-matrix-grid'></div>
+                        <div class='bcg-matrix'>
+                            <div class='bcg-quadrant' id='star'>
+                                <h3>Estrella</h3>
+                                <div class='bcg-products' id='star-products'></div>
+                            </div>
+                            <div class='bcg-quadrant' id='question'>
+                                <h3>Incógnita</h3>
+                                <div class='bcg-products' id='question-products'></div>
+                            </div>
+                            <div class='bcg-quadrant' id='cash-cow'>
+                                <h3>Vaca Lechera</h3>
+                                <div class='bcg-products' id='cash-cow-products'></div>
+                            </div>
+                            <div class='bcg-quadrant' id='dog'>
+                                <h3>Perro</h3>
+                                <div class='bcg-products' id='dog-products'></div>
+                            </div>
+                        </div>
 
                         <div class='bcg-controls'>
                             <form id='bcg-form'>
@@ -351,7 +344,6 @@
                         <div id='growth-strategies-container'></div>
                     </div>
                 </section>
-
 
                 <!-- Sección Estrategias -->
                 <section id='estrategias'>
@@ -475,12 +467,6 @@
                     </div>
                 </section>
             </main>
-        </div>
-
-        <div class='top-actions' style='position: fixed; top: 10px; right: 20px; z-index: 9999;'>
-            <button id='save-state-btn' class='btn small right'>
-                <i class='fas fa-save'></i> Guardar Estado
-            </button>
         </div>
 
         <footer>
