@@ -1,0 +1,32 @@
+[
+  {
+    "nombre": "Campaña Digital Masiva",
+    "tipo": "PESTEL",
+    "productoId": null,
+    "inversion": 50000,
+    "duracion": 3,
+    "impactoIngresos": 15,
+    "impactoCostos": 5,
+    "activa": false
+  },
+  {
+    "nombre": "Alianza con Bancos Clave",
+    "tipo": "Porter",
+    "productoId": 1,
+    "inversion": 75000,
+    "duracion": 6,
+    "impactoIngresos": 20,
+    "impactoCostos": 10,
+    "activa": false
+  },
+  {
+    "nombre": "Expansión a Nuevas Regiones",
+    "tipo": "Ansoff",
+    "productoId": 3,
+    "inversion": 100000,
+    "duracion": 12,
+    "impactoIngresos": 25,
+    "impactoCostos": 15,
+    "activa": false
+  }
+]
